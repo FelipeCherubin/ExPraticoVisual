@@ -38,27 +38,28 @@
             System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Ficção-Cientifica", System.Windows.Forms.HorizontalAlignment.Left);
             this.listView1 = new System.Windows.Forms.ListView();
+            this.colunanome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colunaassistido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colunalocal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nomefilme = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.local = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Cadastrar = new System.Windows.Forms.Button();
+            this.Editar = new System.Windows.Forms.Button();
+            this.excluir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.colunanome,
+            this.colunaassistido,
+            this.colunalocal});
             this.listView1.FullRowSelect = true;
             listViewGroup1.Header = "Ação";
             listViewGroup1.Name = "grupoacao";
@@ -90,10 +91,25 @@
             listViewGroup9});
             this.listView1.Location = new System.Drawing.Point(44, 163);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(446, 248);
+            this.listView1.Size = new System.Drawing.Size(356, 248);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // colunanome
+            // 
+            this.colunanome.Text = "Nome";
+            this.colunanome.Width = 129;
+            // 
+            // colunaassistido
+            // 
+            this.colunaassistido.Text = "Data";
+            this.colunaassistido.Width = 100;
+            // 
+            // colunalocal
+            // 
+            this.colunalocal.Text = "Local";
+            this.colunalocal.Width = 242;
             // 
             // label1
             // 
@@ -131,12 +147,12 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Local";
             // 
-            // textBox1
+            // nomefilme
             // 
-            this.textBox1.Location = new System.Drawing.Point(53, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.nomefilme.Location = new System.Drawing.Point(53, 38);
+            this.nomefilme.Name = "nomefilme";
+            this.nomefilme.Size = new System.Drawing.Size(100, 20);
+            this.nomefilme.TabIndex = 5;
             // 
             // comboBox1
             // 
@@ -156,12 +172,12 @@
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 6;
             // 
-            // textBox3
+            // local
             // 
-            this.textBox3.Location = new System.Drawing.Point(195, 109);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.local.Location = new System.Drawing.Point(195, 109);
+            this.local.Name = "local";
+            this.local.Size = new System.Drawing.Size(100, 20);
+            this.local.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
@@ -171,15 +187,46 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker1.TabIndex = 9;
             // 
+            // Cadastrar
+            // 
+            this.Cadastrar.Location = new System.Drawing.Point(325, 22);
+            this.Cadastrar.Name = "Cadastrar";
+            this.Cadastrar.Size = new System.Drawing.Size(75, 23);
+            this.Cadastrar.TabIndex = 10;
+            this.Cadastrar.Text = "Cadastrar";
+            this.Cadastrar.UseVisualStyleBackColor = true;
+            this.Cadastrar.Click += new System.EventHandler(this.Cadastrar_Click);
+            // 
+            // Editar
+            // 
+            this.Editar.Location = new System.Drawing.Point(325, 65);
+            this.Editar.Name = "Editar";
+            this.Editar.Size = new System.Drawing.Size(75, 23);
+            this.Editar.TabIndex = 11;
+            this.Editar.Text = "Editar";
+            this.Editar.UseVisualStyleBackColor = true;
+            // 
+            // excluir
+            // 
+            this.excluir.Location = new System.Drawing.Point(325, 106);
+            this.excluir.Name = "excluir";
+            this.excluir.Size = new System.Drawing.Size(75, 23);
+            this.excluir.TabIndex = 12;
+            this.excluir.Text = "Excluir";
+            this.excluir.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 423);
+            this.ClientSize = new System.Drawing.Size(917, 428);
+            this.Controls.Add(this.excluir);
+            this.Controls.Add(this.Editar);
+            this.Controls.Add(this.Cadastrar);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.local);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nomefilme);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -187,6 +234,7 @@
             this.Controls.Add(this.listView1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,14 +247,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nomefilme;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox local;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader colunanome;
+        private System.Windows.Forms.ColumnHeader colunaassistido;
+        private System.Windows.Forms.ColumnHeader colunalocal;
+        private System.Windows.Forms.Button Cadastrar;
+        private System.Windows.Forms.Button Editar;
+        private System.Windows.Forms.Button excluir;
     }
 }
 
