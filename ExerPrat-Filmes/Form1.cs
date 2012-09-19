@@ -16,6 +16,13 @@ namespace ExerPrat_Filmes
             InitializeComponent();
         }
 
+        string Nome;
+        string Local;
+        DateTime Data;
+        string Genero;
+       
+        Dictionary<string, List<filme>> filmes = new Dictionary<string, List<filme>>();
+            
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -23,21 +30,16 @@ namespace ExerPrat_Filmes
 
         private void Cadastrar_Click(object sender, EventArgs e)
         {
-            Dictionary<string, List<string>> filmes = new Dictionary<string, List<string>>();
-            List<string> listafilmes = new List<string>();
-            switch (comboBox1.SelectedText)
-            {
-                case "ação" :
-                    {
-                        listafilmes.Add(nomefilme.Text);
-                        filmes.Add(comboBox1.SelectedText, listafilmes);
-                    }
+            List<filme> listafilmes = new List<filme>();
 
+              Nome = nomefilme.Text;
+             Local = local.Text;
+            Data = dateTimePicker1.MaxDate;
+            Genero = comboBox1.SelectedText;
 
-            }
+            //filme Novofilme = new filme(Nome, Local, Data, Genero);
             
-
-
+         
         }
     }
 }
