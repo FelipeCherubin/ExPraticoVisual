@@ -18,9 +18,10 @@ namespace ExerPrat_Filmes
 
        
        
-        Dictionary<string, List<filme>> filmes = new Dictionary<string, List<filme>>();
+        Dictionary<string, List<filme>> Difilmes = new Dictionary<string, List<filme>>();
         List<filme> listafilmes = new List<filme>();
         filme atributo = new filme();
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -28,12 +29,18 @@ namespace ExerPrat_Filmes
 
         private void Cadastrar_Click(object sender, EventArgs e)
         {
-           
+
+            
+
             atributo.nomes = nomefilme.Text;
             atributo.local = local.Text;
             atributo.genero = comboBox1.SelectedItem.ToString();
             atributo.data = dateTimePicker1.Value.ToShortDateString();
-            listafilmes.Add(atributo);
+            if (Difilmes.ContainsKey(atributo.genero))
+            {
+
+                listafilmes.Add(atributo);
+            }
 
             ListViewItem filmes = new ListViewItem();
             filmes.Text = atributo.nomes;
