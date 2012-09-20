@@ -16,13 +16,11 @@ namespace ExerPrat_Filmes
             InitializeComponent();
         }
 
-        string Nome;
-        string Local;
-        DateTime Data;
-        string Genero;
+       
        
         Dictionary<string, List<filme>> filmes = new Dictionary<string, List<filme>>();
-            
+        List<filme> listafilmes = new List<filme>();
+        filme atributo = new filme();
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -30,16 +28,48 @@ namespace ExerPrat_Filmes
 
         private void Cadastrar_Click(object sender, EventArgs e)
         {
-            List<filme> listafilmes = new List<filme>();
+           
+            atributo.nomes = nomefilme.Text;
+            atributo.local = local.Text;
+            atributo.genero = comboBox1.SelectedItem.ToString();
+            atributo.data = dateTimePicker1.Value.ToShortDateString();
+            listafilmes.Add(atributo);
 
-              Nome = nomefilme.Text;
-             Local = local.Text;
-            Data = dateTimePicker1.MaxDate;
-            Genero = comboBox1.SelectedText;
+            ListViewItem filmes = new ListViewItem();
+            filmes.Text = atributo.nomes;
+            filmes.Group = listView1.Groups[comboBox1.SelectedIndex];
+            listView1.Items.Add(filmes);
+            filmes.SubItems.Add(atributo.data);
+            filmes.SubItems.Add(atributo.local);
+            nomefilme.Clear();
+            local.Clear();
+            comboBox1.Text = "";
+            nomefilme.Focus();
+        }
 
-            //filme Novofilme = new filme(Nome, Local, Data, Genero);
-            
-         
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            nomefilme.Text = listView1.SelectedItems[0].Text;
+            dateTimePicker1.Text = listView1.FocusedItem.SubItems[1].Text;
+            local.Text = listView1.FocusedItem.SubItems[2].Text;
+            comboBox1.Text = listView1.SelectedItems[0].Group.Header;
+        }
+
+        private void Editar_Click(object sender, EventArgs e)
+        {
+            listView1.SelectedItems[0].Text = nomefilme.Text;
+            listView1.FocusedItem.SubItems[1].Text = dateTimePicker1.Text;
+            listView1.FocusedItem.SubItems[2].Text = local.Text;
+            nomefilme.Clear();
+            local.Clear();
+            comboBox1.Text = "";
+            nomefilme.Focus();
+        }
+
+        private void excluir_Click(object sender, EventArgs e)
+        {
+            listView1.SelectedItems[0].Remove();
+       
         }
     }
 }

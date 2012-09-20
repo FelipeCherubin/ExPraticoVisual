@@ -36,7 +36,7 @@
             System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Documentario", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Ficção-Cientifica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Ficção-Científica", System.Windows.Forms.HorizontalAlignment.Left);
             this.listView1 = new System.Windows.Forms.ListView();
             this.colunanome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colunaassistido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -77,7 +77,7 @@
             listViewGroup7.Name = "grupoinfant";
             listViewGroup8.Header = "Romance";
             listViewGroup8.Name = "gruporomance";
-            listViewGroup9.Header = "Ficção-Cientifica";
+            listViewGroup9.Header = "Ficção-Científica";
             listViewGroup9.Name = "grupoficcao";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
@@ -95,6 +95,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
             // 
             // colunanome
             // 
@@ -166,7 +167,7 @@
             "Documentario",
             "Infantil",
             "Romance",
-            "Ficção Científica"});
+            "Ficção-Científica"});
             this.comboBox1.Location = new System.Drawing.Point(53, 109);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
@@ -205,6 +206,7 @@
             this.Editar.TabIndex = 11;
             this.Editar.Text = "Editar";
             this.Editar.UseVisualStyleBackColor = true;
+            this.Editar.Click += new System.EventHandler(this.Editar_Click);
             // 
             // excluir
             // 
@@ -214,6 +216,7 @@
             this.excluir.TabIndex = 12;
             this.excluir.Text = "Excluir";
             this.excluir.UseVisualStyleBackColor = true;
+            this.excluir.Click += new System.EventHandler(this.excluir_Click);
             // 
             // Form1
             // 

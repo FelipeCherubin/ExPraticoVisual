@@ -10,18 +10,7 @@ namespace ExerPrat_Filmes
         public string nomes;
         public string local;
         public string genero;
-        public DateTime data;
+        public string data;
        
-
-       
-
-        public filme(string Nome, string Local, DateTime Data, string Genero)
-        {
-            // TODO: Complete member initialization
-            nomes = Nome;
-            local = Local;
-            genero = Genero;
-            data = Data;
-        }
     }
 }
