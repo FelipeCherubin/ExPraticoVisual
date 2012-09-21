@@ -36,10 +36,16 @@ namespace ExerPrat_Filmes
             atributo.local = local.Text;
             atributo.genero = comboBox1.SelectedItem.ToString();
             atributo.data = dateTimePicker1.Value.ToShortDateString();
+
             if (Difilmes.ContainsKey(atributo.genero))
             {
 
-                listafilmes.Add(atributo);
+                Difilmes[atributo.genero].Add(atributo);
+            }
+            else
+            {
+                Difilmes[atributo.genero] = new List<filme>();
+                Difilmes[atributo.genero].Add(atributo);
             }
 
             ListViewItem filmes = new ListViewItem();
@@ -60,13 +66,17 @@ namespace ExerPrat_Filmes
             dateTimePicker1.Text = listView1.FocusedItem.SubItems[1].Text;
             local.Text = listView1.FocusedItem.SubItems[2].Text;
             comboBox1.Text = listView1.SelectedItems[0].Group.Header;
+
         }
 
         private void Editar_Click(object sender, EventArgs e)
         {
+            
             listView1.SelectedItems[0].Text = nomefilme.Text;
             listView1.FocusedItem.SubItems[1].Text = dateTimePicker1.Text;
             listView1.FocusedItem.SubItems[2].Text = local.Text;
+
+
             nomefilme.Clear();
             local.Clear();
             comboBox1.Text = "";
