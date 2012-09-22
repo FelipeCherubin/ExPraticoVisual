@@ -20,7 +20,28 @@ namespace ExerPrat_Filmes
        
         Dictionary<string, List<filme>> Difilmes = new Dictionary<string, List<filme>>();
         List<filme> listafilmes = new List<filme>();
+        ListViewItem filmes = new ListViewItem();
         filme atributo = new filme();
+
+        public void Dicioeatriutos()
+        {
+            atributo.nomes = nomefilme.Text;
+            atributo.local = local.Text;
+            atributo.genero = comboBox1.SelectedItem.ToString();
+            atributo.data = dateTimePicker1.Value.ToShortDateString();
+            //verifica se a chave ja existe
+            if (Difilmes.ContainsKey(atributo.genero))
+            {
+
+                Difilmes[atributo.genero].Add(atributo);
+            }
+            else
+            {
+                //cria uma lista nova
+                Difilmes[atributo.genero] = new List<filme>();
+                Difilmes[atributo.genero].Add(atributo);
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -30,30 +51,16 @@ namespace ExerPrat_Filmes
         private void Cadastrar_Click(object sender, EventArgs e)
         {
 
-            
-
-            atributo.nomes = nomefilme.Text;
-            atributo.local = local.Text;
-            atributo.genero = comboBox1.SelectedItem.ToString();
-            atributo.data = dateTimePicker1.Value.ToShortDateString();
-
-            if (Difilmes.ContainsKey(atributo.genero))
-            {
-
-                Difilmes[atributo.genero].Add(atributo);
-            }
-            else
-            {
-                Difilmes[atributo.genero] = new List<filme>();
-                Difilmes[atributo.genero].Add(atributo);
-            }
-
-            ListViewItem filmes = new ListViewItem();
+            Dicioeatriutos();
+            //inserção dos dados na tabela
+            filmes = new ListViewItem();
             filmes.Text = atributo.nomes;
             filmes.Group = listView1.Groups[comboBox1.SelectedIndex];
             listView1.Items.Add(filmes);
             filmes.SubItems.Add(atributo.data);
             filmes.SubItems.Add(atributo.local);
+            
+            //limpando texboxs
             nomefilme.Clear();
             local.Clear();
             comboBox1.Text = "";
@@ -62,6 +69,7 @@ namespace ExerPrat_Filmes
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            //coloca os itens e subitens nos texboxs para edição
             nomefilme.Text = listView1.SelectedItems[0].Text;
             dateTimePicker1.Text = listView1.FocusedItem.SubItems[1].Text;
             local.Text = listView1.FocusedItem.SubItems[2].Text;
@@ -71,10 +79,15 @@ namespace ExerPrat_Filmes
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            
-            listView1.SelectedItems[0].Text = nomefilme.Text;
-            listView1.FocusedItem.SubItems[1].Text = dateTimePicker1.Text;
-            listView1.FocusedItem.SubItems[2].Text = local.Text;
+            Dicioeatriutos();
+            //edita os texboxs para 
+            filmes = new ListViewItem();
+            filmes.Text = atributo.nomes;
+            filmes.Group = listView1.Groups[comboBox1.SelectedIndex];
+            listView1.Items.Add(filmes);
+            filmes.SubItems.Add(atributo.data);
+            filmes.SubItems.Add(atributo.local);
+            listView1.SelectedItems[0].Remove();
 
 
             nomefilme.Clear();
@@ -87,6 +100,11 @@ namespace ExerPrat_Filmes
         {
             listView1.SelectedItems[0].Remove();
        
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -52,6 +52,7 @@
             this.Cadastrar = new System.Windows.Forms.Button();
             this.Editar = new System.Windows.Forms.Button();
             this.excluir = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listView1
@@ -89,9 +90,9 @@
             listViewGroup7,
             listViewGroup8,
             listViewGroup9});
-            this.listView1.Location = new System.Drawing.Point(44, 163);
+            this.listView1.Location = new System.Drawing.Point(22, 163);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(356, 248);
+            this.listView1.Size = new System.Drawing.Size(378, 248);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -115,16 +116,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 22);
+            this.label1.Location = new System.Drawing.Point(19, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nome do Filmes";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 87);
+            this.label2.Location = new System.Drawing.Point(19, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 2;
@@ -133,7 +135,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(192, 22);
+            this.label3.Location = new System.Drawing.Point(192, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 13);
             this.label3.TabIndex = 3;
@@ -150,9 +152,9 @@
             // 
             // nomefilme
             // 
-            this.nomefilme.Location = new System.Drawing.Point(53, 38);
+            this.nomefilme.Location = new System.Drawing.Point(22, 64);
             this.nomefilme.Name = "nomefilme";
-            this.nomefilme.Size = new System.Drawing.Size(100, 20);
+            this.nomefilme.Size = new System.Drawing.Size(157, 20);
             this.nomefilme.TabIndex = 5;
             // 
             // comboBox1
@@ -168,14 +170,14 @@
             "Infantil",
             "Romance",
             "Ficção-Científica"});
-            this.comboBox1.Location = new System.Drawing.Point(53, 109);
+            this.comboBox1.Location = new System.Drawing.Point(22, 103);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
+            this.comboBox1.Size = new System.Drawing.Size(114, 21);
             this.comboBox1.TabIndex = 6;
             // 
             // local
             // 
-            this.local.Location = new System.Drawing.Point(195, 109);
+            this.local.Location = new System.Drawing.Point(195, 103);
             this.local.Name = "local";
             this.local.Size = new System.Drawing.Size(100, 20);
             this.local.TabIndex = 8;
@@ -183,16 +185,16 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(195, 37);
+            this.dateTimePicker1.Location = new System.Drawing.Point(195, 61);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // Cadastrar
             // 
-            this.Cadastrar.Location = new System.Drawing.Point(325, 22);
+            this.Cadastrar.Location = new System.Drawing.Point(325, 44);
             this.Cadastrar.Name = "Cadastrar";
-            this.Cadastrar.Size = new System.Drawing.Size(75, 23);
+            this.Cadastrar.Size = new System.Drawing.Size(75, 37);
             this.Cadastrar.TabIndex = 10;
             this.Cadastrar.Text = "Cadastrar";
             this.Cadastrar.UseVisualStyleBackColor = true;
@@ -200,7 +202,7 @@
             // 
             // Editar
             // 
-            this.Editar.Location = new System.Drawing.Point(325, 65);
+            this.Editar.Location = new System.Drawing.Point(325, 87);
             this.Editar.Name = "Editar";
             this.Editar.Size = new System.Drawing.Size(75, 23);
             this.Editar.TabIndex = 11;
@@ -210,7 +212,7 @@
             // 
             // excluir
             // 
-            this.excluir.Location = new System.Drawing.Point(325, 106);
+            this.excluir.Location = new System.Drawing.Point(325, 134);
             this.excluir.Name = "excluir";
             this.excluir.Size = new System.Drawing.Size(75, 23);
             this.excluir.TabIndex = 12;
@@ -218,11 +220,23 @@
             this.excluir.UseVisualStyleBackColor = true;
             this.excluir.Click += new System.EventHandler(this.excluir_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
+            this.textBox1.Location = new System.Drawing.Point(57, 13);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(781, 20);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.Text = "Cadastro de filmes";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.UseWaitCursor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 428);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.excluir);
             this.Controls.Add(this.Editar);
             this.Controls.Add(this.Cadastrar);
@@ -260,6 +274,7 @@
         private System.Windows.Forms.Button Cadastrar;
         private System.Windows.Forms.Button Editar;
         private System.Windows.Forms.Button excluir;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
