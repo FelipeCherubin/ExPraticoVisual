@@ -17,12 +17,36 @@ namespace ExerPrat_Filmes
             Editar.Enabled = false;
         }
 
-       
-       
+
+        
         Dictionary<string, List<filme>> Difilmes = new Dictionary<string, List<filme>>();
         List<filme> listafilmes = new List<filme>();
         ListViewItem filmes = new ListViewItem();
         filme atributo = new filme();
+
+        public void editalista()
+        {
+         
+            string nome = listView1.SelectedItems[0].Text;
+            string data = listView1.FocusedItem.SubItems[1].Text;
+            string locals = listView1.FocusedItem.SubItems[2].Text;
+            string genero = listView1.SelectedItems[0].Group.Header;
+            foreach (filme adita in listafilmes)
+            {
+                if (nome == atributo.nomes && data == atributo.data && locals == atributo.local && genero == atributo.genero)
+                {
+                    atributo.nomes = nomefilme.Text;
+                    atributo.local = local.Text;
+                    atributo.genero = comboBox1.SelectedItem.ToString();
+                    atributo.data = dateTimePicker1.Value.ToShortDateString();
+                }
+            }
+            
+
+
+            
+
+        }
 
         public void pesquisa()
         {
@@ -40,9 +64,10 @@ namespace ExerPrat_Filmes
 
         public void Dicioeatriutos()
         {
-            if (nomefilme.Text != " " && local.Text != " " && comboBox1.SelectedItem.ToString() != " " )
-            {
-                atributo.nomes = nomefilme.Text;
+
+            atributo = new filme();
+            
+               atributo.nomes = nomefilme.Text;
                 atributo.local = local.Text;
                 atributo.genero = comboBox1.SelectedItem.ToString();
                 atributo.data = dateTimePicker1.Value.ToShortDateString();
@@ -58,9 +83,7 @@ namespace ExerPrat_Filmes
                     Difilmes[atributo.genero] = new List<filme>();
                     Difilmes[atributo.genero].Add(atributo);
                 }
-            }
-            else
-                MessageBox.Show("Campo(s) nao preenchidos", "Informação",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -79,6 +102,7 @@ namespace ExerPrat_Filmes
             listView1.Items.Add(filmes);
             filmes.SubItems.Add(atributo.data);
             filmes.SubItems.Add(atributo.local);
+            
             
             //limpando texboxs
             nomefilme.Clear();
@@ -103,7 +127,7 @@ namespace ExerPrat_Filmes
         {
             Cadastrar.Enabled = true;
             Dicioeatriutos();
-            //edita os texboxs para 
+            //adiciona novo item e subitem no listview
             filmes = new ListViewItem();
             filmes.Text = atributo.nomes;
             filmes.Group = listView1.Groups[comboBox1.SelectedIndex];
@@ -111,6 +135,7 @@ namespace ExerPrat_Filmes
             filmes.SubItems.Add(atributo.data);
             filmes.SubItems.Add(atributo.local);
             listView1.SelectedItems[0].Remove();
+
             Editar.Enabled = false;
 
 
