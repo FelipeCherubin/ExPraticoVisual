@@ -20,10 +20,10 @@ namespace ExerPrat_Filmes
 
         
         Dictionary<string, List<filme>> Difilmes = new Dictionary<string, List<filme>>();
-        List<filme> listafilmes = new List<filme>();
+        List<filme> listafilmes;
         ListViewItem filmes = new ListViewItem();
         filme atributo = new filme();
-
+        
         public void editalista()
         {
          
@@ -31,20 +31,35 @@ namespace ExerPrat_Filmes
             string data = listView1.FocusedItem.SubItems[1].Text;
             string locals = listView1.FocusedItem.SubItems[2].Text;
             string genero = listView1.SelectedItems[0].Group.Header;
-            foreach (filme adita in listafilmes)
+            foreach (List<filme> fil in Difilmes.Values)
             {
-                if (nome == atributo.nomes && data == atributo.data && locals == atributo.local && genero == atributo.genero)
+                foreach (filme i in fil)
                 {
-                    atributo.nomes = nomefilme.Text;
-                    atributo.local = local.Text;
-                    atributo.genero = comboBox1.SelectedItem.ToString();
-                    atributo.data = dateTimePicker1.Value.ToShortDateString();
+                     if (nome == i.nomes && data == i.data && locals == i.local && genero == i .genero)
+                    {
+                       
+                        atributo.nomes = nomefilme.Text;
+                        atributo.local = local.Text;
+                        atributo.genero = comboBox1.SelectedItem.ToString();
+                        atributo.data = dateTimePicker1.Value.ToShortDateString();
+
+                        if (Difilmes.ContainsKey(atributo.genero))
+                        {
+
+                            Difilmes[atributo.genero].Add(atributo);
+                        }
+                        else
+                        {
+                            //cria uma lista nova
+                            Difilmes[atributo.genero] = new List<filme>();
+                            Difilmes[atributo.genero].Add(atributo);
+                        }
+                    }
                 }
-            }
             
-
-
-            
+               
+                
+            }           
 
         }
 
@@ -127,16 +142,17 @@ namespace ExerPrat_Filmes
         {
             Cadastrar.Enabled = true;
             Dicioeatriutos();
-            //adiciona novo item e subitem no listview
-            filmes = new ListViewItem();
-            filmes.Text = atributo.nomes;
-            filmes.Group = listView1.Groups[comboBox1.SelectedIndex];
-            listView1.Items.Add(filmes);
-            filmes.SubItems.Add(atributo.data);
-            filmes.SubItems.Add(atributo.local);
-            listView1.SelectedItems[0].Remove();
+            editalista();
+            for (int i = listView1.SelectedItems.Count - 1; i >= 0; i--)
+            {
+                ListViewItem remove = listView1.SelectedItems[i];
+                remove.Group = listView1.Groups[comboBox1.SelectedIndex];
+                remove.Text = nomefilme.Text;
+                remove.SubItems[1].Text = dateTimePicker1.Text;
+                remove.SubItems[2].Text = local.Text;
+            }
 
-            Editar.Enabled = false;
+                Editar.Enabled = false;
 
 
             nomefilme.Clear();
@@ -159,6 +175,11 @@ namespace ExerPrat_Filmes
         private void button1_Click(object sender, EventArgs e)
         {
             pesquisa();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
         }
     }
 }
