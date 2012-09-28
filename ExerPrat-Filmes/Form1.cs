@@ -15,15 +15,24 @@ namespace ExerPrat_Filmes
         {
             InitializeComponent();
             Editar.Enabled = false;
+            listView2.Items.AddRange(listView1.Items);
         }
 
-
+       
         
         Dictionary<string, List<filme>> Difilmes = new Dictionary<string, List<filme>>();
         List<filme> listafilmes;
         ListViewItem filmes = new ListViewItem();
         filme atributo = new filme();
-        
+
+        public void Pesq()
+        {
+            //if (checkBox1.Checked)
+            //{
+            //    List<filme> novalista = Difilmes[];
+            //}
+        }
+
         public void editalista()
         {
          
@@ -117,6 +126,7 @@ namespace ExerPrat_Filmes
             filmes.SubItems.Add(atributo.data.ToShortDateString());
             filmes.SubItems.Add(atributo.local);
             
+            
             //limpando texboxs
             nomefilme.Clear();
             local.Clear();
@@ -146,7 +156,7 @@ namespace ExerPrat_Filmes
                 ListViewItem remove = listView1.SelectedItems[i];
                 remove.Group = listView1.Groups[comboBox1.SelectedIndex];
                 remove.Text = nomefilme.Text;
-                remove.SubItems[1].Text = dateTimePicker1.Text;
+                remove.SubItems[1].Text = dateTimePicker1.ToString();
                 remove.SubItems[2].Text = local.Text;
             }
 
@@ -184,6 +194,7 @@ namespace ExerPrat_Filmes
         private void button1_Click(object sender, EventArgs e)
         {
             pesquisa();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
