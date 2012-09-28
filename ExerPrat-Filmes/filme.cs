@@ -10,7 +10,7 @@ namespace ExerPrat_Filmes
         public string nomes;
         public string local;
         public string genero;
-        public string data;
+        public DateTime data;
        
     }
 }
