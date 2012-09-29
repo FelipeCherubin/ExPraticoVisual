@@ -72,7 +72,6 @@ namespace ExerPrat_Filmes
                             || ((pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && pesqnome.Text == "")))
                             {
                                 AdicionaItemListView2(filme);
-
                             }
                         }
                         else
