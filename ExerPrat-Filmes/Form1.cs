@@ -88,8 +88,12 @@ namespace ExerPrat_Filmes
                             {
                                 AdicionaItemListView2(filme);
                             }
-                            else if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && (dataA <= filme.data && dataB >= filme.data))
-                                || (pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data))
+                            else if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text)
+                                && (dataA <= filme.data && dataB >= filme.data)))
+                            {
+                                AdicionaItemListView2(filme);
+                            }
+                            else if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data))
                                 || (pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && (dataA <= filme.data && dataB >= filme.data)))
                             {
                                 AdicionaItemListView2(filme);
@@ -145,6 +149,10 @@ namespace ExerPrat_Filmes
                         {
                             AdicionaItemListView2(filme);
                             
+                        }
+                        else if ((dataA <= filme.data && dataB >= filme.data) && pesqnome.Text== "" && pesqlocal.Text == "")
+                        {
+                            AdicionaItemListView2(filme);
                         }
                     }
                     

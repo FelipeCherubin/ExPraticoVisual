@@ -268,6 +268,7 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(1, 2);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -277,7 +278,6 @@
             this.textBox1.TabIndex = 13;
             this.textBox1.Text = "Cadastro de filmes";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.UseWaitCursor = true;
             // 
             // button1
             // 
@@ -511,8 +511,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Filmes";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
