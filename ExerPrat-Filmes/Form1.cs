@@ -121,7 +121,6 @@ namespace ExerPrat_Filmes
                     //se a data nao for checada entra no if, se nao vai para outra condição
                     if (checkdata.Checked == false)
                     {
-
                         if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && pesqlocal.Text == "")
                             || ((pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && pesqnome.Text == "")))
                         {
@@ -130,8 +129,7 @@ namespace ExerPrat_Filmes
                         }
                         else if (pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text))
                         {
-                            AdicionaItemListView2(filme);
-                            
+                            AdicionaItemListView2(filme);                           
                         }
                     }
                     else
@@ -154,8 +152,7 @@ namespace ExerPrat_Filmes
                         {
                             AdicionaItemListView2(filme);
                         }
-                    }
-                    
+                    }                    
                 }
             }
             
@@ -181,19 +178,14 @@ namespace ExerPrat_Filmes
                         list.Add(l);
                     }
                     else
-                    {
-                        
-                        List<filme> list = new List<filme>();
-                       
-                        list.Add(l);
-                        
+                    {                       
+                        List<filme> list = new List<filme>();                       
+                        list.Add(l);                       
                         Difilmes.Add(l.genero, list);
                     }
                     listafilmes.Remove(l);
-                }
-              
+                }              
             }           
-
         }
 
         public void Dicioeatriutos()
@@ -255,7 +247,6 @@ namespace ExerPrat_Filmes
             dateTimePicker1.Text = listView1.FocusedItem.SubItems[1].Text;
             local.Text = listView1.FocusedItem.SubItems[2].Text;
             comboBox1.Text = listView1.SelectedItems[0].Group.Header;
-
         }
 
         private void Editar_Click(object sender, EventArgs e)
@@ -278,8 +269,7 @@ namespace ExerPrat_Filmes
         }
 
         private void excluir_Click(object sender, EventArgs e)
-        {
-            
+        {            
                 listafilmes = Difilmes[listView1.SelectedItems[0].Group.Header];
                 //remove os itens da lista
                 for (int i = 0; i < listafilmes.Count; i++)
@@ -289,7 +279,6 @@ namespace ExerPrat_Filmes
                     {
                         listafilmes.Remove(l);
                     }
-
                 }
                 LimpaTexbox();
             //percorre o laço pegando todos os itens selecionados e depois os exclui
