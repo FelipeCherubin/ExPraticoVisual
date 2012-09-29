@@ -24,13 +24,97 @@ namespace ExerPrat_Filmes
         List<filme> listafilmes;
         ListViewItem filmes = new ListViewItem();
         filme atributo = new filme();
-
+         filme lista;
+        List<filme> fi = new List<filme>();
+        public void AdicionaItemListView2(filme f)
+        {
+            filmes = new ListViewItem();
+            filmes.Text = f.nomes;
+            filmes.Group = listView2.Groups[f.genero ];
+            listView2.Items.Add(filmes);
+            filmes.SubItems.Add(f.data.ToShortDateString());
+            filmes.SubItems.Add(f.local);
+        }
         public void Pesq()
         {
-            //if (checkBox1.Checked)
-            //{
-            //    List<filme> novalista = Difilmes[];
-            //}
+            if (pesqgenero.SelectedItem != null)
+            {
+
+                List<filme> pesqlist = Difilmes[pesqgenero.Text];
+
+                for (int i = 0; i < pesqlist.Count; i++)
+                {
+                    lista = pesqlist[i];
+                    if (checkdata.Checked == false)
+                    {
+                        if ((pesqgenero.SelectedItem.ToString() == lista.genero && pesqnome.Text == "" && pesqlocal.Text == ""))
+                        {
+                            MessageBox.Show(lista.genero, "");
+                            AdicionaItemListView2(lista);
+                        }
+                        if ((pesqnome.Text == lista.nomes && pesqlocal.Text == lista.local) || (pesqnome.Text == lista.nomes) || (pesqlocal.Text == lista.local))
+                        {
+                            AdicionaItemListView2(lista);
+                        }
+                    }
+                    else
+                    {
+                        DateTime dataA = dateTimePicker2.Value.Date;
+                        DateTime dataB = dateTimePicker3.Value.Date;
+                        if ((dataA <= lista.data && dataB >= lista.data) && pesqgenero.SelectedItem.ToString() == lista.genero && pesqnome.Text == "" && pesqlocal.Text == "")
+                        {
+                            AdicionaItemListView2(lista);
+                        }
+                        else if ((pesqnome.Text == lista.nomes && pesqlocal.Text == lista.local && (dataA <= lista.data && dataB >= lista.data))
+                            || (pesqnome.Text == lista.nomes && (dataA <= lista.data && dataB >= lista.data))
+                            || (pesqlocal.Text == lista.local && (dataA <= lista.data && dataB >= lista.data)))
+                        {
+                            AdicionaItemListView2(lista);
+                        }
+
+                    }
+
+                }
+
+            }
+            else
+            {
+                foreach (List<filme> todalista in Difilmes.Values)
+                {
+                    fi.AddRange(todalista);
+                }
+                for (int i = 0; i < fi.Count; i++)
+                {
+                    lista = fi[i];
+                    if (checkdata.Checked == false)
+                    {
+
+                        if ((pesqnome.Text == lista.nomes && pesqlocal.Text == "") || (pesqlocal.Text == lista.local && pesqnome.Text == ""))
+                        {
+                            AdicionaItemListView2(lista);
+                        }
+                        else if (pesqnome.Text == lista.nomes && pesqlocal.Text == lista.local)
+                        {
+                            AdicionaItemListView2(lista);
+                        }
+                    }
+                    else
+                    {
+                        DateTime dataA = dateTimePicker2.Value.Date;
+                        DateTime dataB = dateTimePicker3.Value.Date;
+                        if (lista.nomes.IndexOf(pesqnome.Text) != -1  && (dataA <= lista.data && dataB >= lista.data) && pesqlocal.Text == "")
+                        {
+                            AdicionaItemListView2(lista);
+                        }
+                        else if (pesqnome.Text == lista.nomes && (dataA <= lista.data && dataB >= lista.data) && pesqlocal.Text == lista.local)
+                        {
+                            AdicionaItemListView2(lista);
+                        }
+
+                    }
+                    fi.Remove(lista);
+                }
+            }
         }
 
         public void editalista()
@@ -69,19 +153,7 @@ namespace ExerPrat_Filmes
 
         }
 
-        public void pesquisa()
-        {
-            foreach (List<filme> fil in Difilmes.Values)
-            {
-                foreach (filme i in fil)
-                {
-                    listBox1.Items.Add(i.nomes);
-                    listBox1.Items.Add(i.local );
-                    listBox1.Items.Add(i.data );
-                    listBox1.Items.Add(i.genero );
-                }
-            }
-        }
+       
 
         public void Dicioeatriutos()
         {
@@ -116,15 +188,19 @@ namespace ExerPrat_Filmes
 
         private void Cadastrar_Click(object sender, EventArgs e)
         {
-
-            Dicioeatriutos();
-            //inserção dos dados na tabela
-            filmes = new ListViewItem();
-            filmes.Text = atributo.nomes;
-            filmes.Group = listView1.Groups[comboBox1.SelectedIndex];
-            listView1.Items.Add(filmes);
-            filmes.SubItems.Add(atributo.data.ToShortDateString());
-            filmes.SubItems.Add(atributo.local);
+            if (nomefilme.Text != "" && local.Text != "" && comboBox1.SelectedItem != null)
+            {
+                Dicioeatriutos();
+                //inserção dos dados na tabela
+                filmes = new ListViewItem();
+                filmes.Text = atributo.nomes;
+                filmes.Group = listView1.Groups[comboBox1.SelectedIndex];
+                listView1.Items.Add(filmes);
+                filmes.SubItems.Add(atributo.data.ToShortDateString());
+                filmes.SubItems.Add(atributo.local);
+            }
+            else
+                MessageBox.Show("Campo(s) não preenchidos", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
             
             //limpando texboxs
@@ -156,7 +232,7 @@ namespace ExerPrat_Filmes
                 ListViewItem remove = listView1.SelectedItems[i];
                 remove.Group = listView1.Groups[comboBox1.SelectedIndex];
                 remove.Text = nomefilme.Text;
-                remove.SubItems[1].Text = dateTimePicker1.ToString();
+                remove.SubItems[1].Text = dateTimePicker1.Value.ToShortDateString();
                 remove.SubItems[2].Text = local.Text;
             }
 
@@ -171,12 +247,15 @@ namespace ExerPrat_Filmes
 
         private void excluir_Click(object sender, EventArgs e)
         {
-            //remote os itens da lista
             listafilmes = Difilmes[listView1.SelectedItems[0].Group.Header];
+            //remove os itens da lista
             for (int i = 0; i < listafilmes.Count; i++)
             {
-                listafilmes.Remove(atributo);
-                listafilmes.Clear();
+                filme l = listafilmes[i];
+                if (l.nomes == listView1.SelectedItems[0].Text)
+                {
+                    listafilmes.Remove(l);
+                }
             }
             nomefilme.Clear();
             local.Clear();
@@ -193,13 +272,17 @@ namespace ExerPrat_Filmes
 
         private void button1_Click(object sender, EventArgs e)
         {
-            pesquisa();
-
+            
+            Pesq();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+            listView2.Items.Clear();
+            listView2.Items.Clear();
+            pesqnome.Clear();
+            pesqlocal.Clear();
+            pesqgenero.Text = null;
         }
     }
 }

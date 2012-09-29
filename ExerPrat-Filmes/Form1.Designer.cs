@@ -63,7 +63,6 @@
             this.excluir = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,18 +70,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pesqnome = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.pesqlocal = new System.Windows.Forms.TextBox();
             this.listView2 = new System.Windows.Forms.ListView();
             this.colunanome1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colunaassistido1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colunalocal1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkdata = new System.Windows.Forms.CheckBox();
+            this.pesqgenero = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // listView1
@@ -272,21 +268,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(817, 367);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(88, 43);
-            this.listBox1.TabIndex = 15;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(688, 393);
+            this.button2.Location = new System.Drawing.Point(788, 393);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(117, 23);
             this.button2.TabIndex = 16;
-            this.button2.Text = "button2";
+            this.button2.Text = "Limpar Pesquisa";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -342,13 +330,6 @@
             this.pesqnome.Size = new System.Drawing.Size(145, 20);
             this.pesqnome.TabIndex = 22;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(686, 59);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 23;
-            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -365,13 +346,13 @@
             this.dateTimePicker3.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker3.TabIndex = 25;
             // 
-            // textBox4
+            // pesqlocal
             // 
-            this.textBox4.Location = new System.Drawing.Point(477, 144);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(332, 37);
-            this.textBox4.TabIndex = 26;
+            this.pesqlocal.Location = new System.Drawing.Point(477, 144);
+            this.pesqlocal.Multiline = true;
+            this.pesqlocal.Name = "pesqlocal";
+            this.pesqlocal.Size = new System.Drawing.Size(332, 37);
+            this.pesqlocal.TabIndex = 26;
             // 
             // listView2
             // 
@@ -380,23 +361,23 @@
             this.colunaassistido1,
             this.colunalocal1});
             listViewGroup10.Header = "Ação";
-            listViewGroup10.Name = "grupoacao";
+            listViewGroup10.Name = "Ação";
             listViewGroup11.Header = "Aventura";
-            listViewGroup11.Name = "grupoaventura";
+            listViewGroup11.Name = "Aventura";
             listViewGroup12.Header = "Comédia";
-            listViewGroup12.Name = "grupocomedia";
+            listViewGroup12.Name = "Comédia";
             listViewGroup13.Header = "Terror";
-            listViewGroup13.Name = "grupoterror";
+            listViewGroup13.Name = "Terror";
             listViewGroup14.Header = "Suspense";
-            listViewGroup14.Name = "gruposuspense";
+            listViewGroup14.Name = "Suspense";
             listViewGroup15.Header = "Documentario";
-            listViewGroup15.Name = "grupodoc";
+            listViewGroup15.Name = "Documentario";
             listViewGroup16.Header = "Infantil";
-            listViewGroup16.Name = "grupoinfantil";
+            listViewGroup16.Name = "Infantil";
             listViewGroup17.Header = "Romance";
-            listViewGroup17.Name = "gruporomance";
+            listViewGroup17.Name = "Romance";
             listViewGroup18.Header = "Ficção-Científica";
-            listViewGroup18.Name = "grupoficcao";
+            listViewGroup18.Name = "Ficção-Científica";
             this.listView2.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup10,
             listViewGroup11,
@@ -429,56 +410,44 @@
             this.colunalocal1.Text = "Local";
             this.colunalocal1.Width = 126;
             // 
-            // checkBox1
+            // checkdata
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(456, 62);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 28;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkdata.AutoSize = true;
+            this.checkdata.Location = new System.Drawing.Point(454, 110);
+            this.checkdata.Name = "checkdata";
+            this.checkdata.Size = new System.Drawing.Size(15, 14);
+            this.checkdata.TabIndex = 29;
+            this.checkdata.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // pesqgenero
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(454, 110);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 29;
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(655, 64);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 30;
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(454, 156);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 31;
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.pesqgenero.FormattingEnabled = true;
+            this.pesqgenero.Items.AddRange(new object[] {
+            "Ação",
+            "Aventura",
+            "Comédia",
+            "Terror",
+            "Suspense",
+            "Documentario",
+            "Infantil",
+            "Romance",
+            "Ficção-Científica"});
+            this.pesqgenero.Location = new System.Drawing.Point(684, 59);
+            this.pesqgenero.Name = "pesqgenero";
+            this.pesqgenero.Size = new System.Drawing.Size(121, 21);
+            this.pesqgenero.TabIndex = 32;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 428);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.pesqgenero);
+            this.Controls.Add(this.checkdata);
             this.Controls.Add(this.listView2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.pesqlocal);
             this.Controls.Add(this.dateTimePicker3);
             this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.pesqnome);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -486,7 +455,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.excluir);
@@ -528,7 +496,6 @@
         private System.Windows.Forms.Button excluir;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -536,18 +503,15 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox pesqnome;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox pesqlocal;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader colunanome1;
         private System.Windows.Forms.ColumnHeader colunaassistido1;
         private System.Windows.Forms.ColumnHeader colunalocal1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkdata;
+        private System.Windows.Forms.ComboBox pesqgenero;
     }
 }
 

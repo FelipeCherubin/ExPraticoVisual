@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExerPrat_Filmes
 {
-    class filme
+    public class filme
     {
         public string nomes;
         public string local;
