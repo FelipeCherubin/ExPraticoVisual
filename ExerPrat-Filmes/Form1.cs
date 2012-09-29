@@ -274,7 +274,6 @@ namespace ExerPrat_Filmes
                 ListViewItem remove = listView1.SelectedItems[i];
                 remove.Remove();
             }
-            
        
         }
 
