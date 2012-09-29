@@ -15,7 +15,7 @@ namespace ExerPrat_Filmes
         {
             InitializeComponent();
             Editar.Enabled = false;
-            listView2.Items.AddRange(listView1.Items);
+            excluir.Enabled = false;
         }
 
        
@@ -25,7 +25,7 @@ namespace ExerPrat_Filmes
         ListViewItem filmes = new ListViewItem();
         filme atributo = new filme();
          filme filme;
-        List<filme> fi = new List<filme>();
+        List<filme> TodososFilmes = new List<filme>();
 
         public void LimpaTexbox()
         {
@@ -47,16 +47,22 @@ namespace ExerPrat_Filmes
         }
         public void Pesquisa()
         {
+            //verifica se o combobox não é nulo, se for entra, se nao vai para outra condição
             if (pesqgenero.SelectedItem != null)
             {
+                //verifica se genero ja existe no dicionario, se existe entra , se nao retorna uma mensagem dizendo que o genero nao foi encontrado 
                 if (Difilmes.ContainsKey(pesqgenero.SelectedItem.ToString()))
                 {
+                    //pega os valores da chave do dicionario.
                     List<filme> pesqlist = Difilmes[pesqgenero.Text];
 
+                    //percorre cada filme ate que i < pesqlist 
                     for (int i = 0; i < pesqlist.Count; i++)
                     {
                         filme = new filme();
+                        //pega o objeto de cada filme que esta no pesqlist
                         filme = pesqlist[i];
+                        //se a data nao for checada entra no if, se nao vai para outra condição
                         if (checkdata.Checked == false)
                         {
                             if ((pesqgenero.SelectedItem.ToString() == filme.genero && pesqnome.Text == "" && pesqlocal.Text == ""))
@@ -96,15 +102,19 @@ namespace ExerPrat_Filmes
             }
             else
             {
-                fi.Clear();
+          
+                TodososFilmes.Clear();
+                //Pega todos os valores do dicionadio
                 foreach (List<filme> todalista in Difilmes.Values)
                 {
-                    fi.AddRange(todalista);
+                    TodososFilmes.AddRange(todalista);
                 }
-                for (int i = 0; i < fi.Count; i++)
+                //percorre cada filme ate que i < TodososFilmes
+                for (int i = 0; i < TodososFilmes.Count; i++)
                 {
                     filme = new filme();
-                    filme = fi[i];
+                    filme = TodososFilmes[i];
+                    //se a data nao for checada entra no if, se nao vai para outra condição
                     if (checkdata.Checked == false)
                     {
 
@@ -145,11 +155,11 @@ namespace ExerPrat_Filmes
 
         public void editalista()
         {
-            //pega o valor do grupo selecionado e joga em um List
+            //pega o objeto do grupo selecionado e joga em um List
             listafilmes = Difilmes[listView1.SelectedItems[0].Group.Header];
             for (int i = 0; i < listafilmes.Count; i++)
             {
-                //criei uma variavel local do meu objeto filme e atribui todos os itens do listafilmes para a variavel l.
+                //criei uma variavel local do meu objeto filme e atribui o item do listafilmes para a variavel l.
                 filme l = listafilmes[i];
                 if (l.nomes == listView1.SelectedItems[0].Text)
                 {
@@ -210,6 +220,7 @@ namespace ExerPrat_Filmes
 
         private void Cadastrar_Click(object sender, EventArgs e)
         {
+            //se nome, local e grupo estiverem sem conteudo ele retorna a mensagem, se nao ele entra na condição
             if (nomefilme.Text != "" && local.Text != "" && comboBox1.SelectedItem != null)
             {
                 Dicioeatriutos();
@@ -230,6 +241,7 @@ namespace ExerPrat_Filmes
         {
             Editar.Enabled = true;
             Cadastrar.Enabled = false;
+            excluir.Enabled = true;
             //coloca os itens e subitens nos texboxs para edição
             nomefilme.Text = listView1.SelectedItems[0].Text;
             dateTimePicker1.Text = listView1.FocusedItem.SubItems[1].Text;
@@ -240,8 +252,10 @@ namespace ExerPrat_Filmes
 
         private void Editar_Click(object sender, EventArgs e)
         {
-            Cadastrar.Enabled = true;          
+            Cadastrar.Enabled = true;
+            excluir.Enabled = false;
             editalista();
+            //percorre o laço pegando os itens selecionados e editando o que esta no texbos e combobox
             for (int i = listView1.SelectedItems.Count - 1; i >= 0; i--)
             {
                 ListViewItem remove = listView1.SelectedItems[i];
@@ -257,24 +271,28 @@ namespace ExerPrat_Filmes
 
         private void excluir_Click(object sender, EventArgs e)
         {
-            listafilmes = Difilmes[listView1.SelectedItems[0].Group.Header];
-            //remove os itens da lista
-            for (int i = 0; i < listafilmes.Count; i++)
-            {
-                filme l = listafilmes[i];
-                if (l.nomes == listView1.SelectedItems[0].Text)
+            
+                listafilmes = Difilmes[listView1.SelectedItems[0].Group.Header];
+                //remove os itens da lista
+                for (int i = 0; i < listafilmes.Count; i++)
                 {
-                    listafilmes.Remove(l);
+                    filme l = listafilmes[i];
+                    if (l.nomes == listView1.SelectedItems[0].Text)
+                    {
+                        listafilmes.Remove(l);
+                    }
+
                 }
-                
-            }
-            LimpaTexbox(); 
-            for (int i = listView1.SelectedItems.Count - 1; i >= 0; i--)
-            {
-                ListViewItem remove = listView1.SelectedItems[i];
-                remove.Remove();
-            }
-       
+                LimpaTexbox();
+            //percorre o laço pegando todos os itens selecionados e depois os exclui
+                for (int i = listView1.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    ListViewItem remove = listView1.SelectedItems[i];
+                    remove.Remove();
+                }
+                Cadastrar.Enabled = true;
+                excluir.Enabled = false;
+                Editar.Enabled = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
