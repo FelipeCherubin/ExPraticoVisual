@@ -11,6 +11,6 @@ namespace ExerPrat_Filmes
         public string local;
         public string genero;
         public DateTime data;
-       
+
     }
 }
