@@ -17,8 +17,6 @@ namespace ExerPrat_Filmes
             Editar.Enabled = false;
             excluir.Enabled = false;
         }
-
-       
         
         Dictionary<string, List<filme>> Difilmes = new Dictionary<string, List<filme>>();
         List<filme> listafilmes;
@@ -65,10 +63,9 @@ namespace ExerPrat_Filmes
                         //se a data nao for checada entra no if, se nao vai para outra condição
                         if (checkdata.Checked == false)
                         {
-                            if ((pesqgenero.SelectedItem.ToString() == filme.genero && pesqnome.Text == "" && pesqlocal.Text == ""))
+                            if ( pesqnome.Text == "" && pesqlocal.Text == "")
                             {
-
-                                AdicionaItemListView2(filme);
+                               AdicionaItemListView2(filme);
                             }
                             else if (((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text)) && (pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text))))
                             {
@@ -84,7 +81,8 @@ namespace ExerPrat_Filmes
                         {
                             DateTime dataA = dateTimePicker2.Value.Date;
                             DateTime dataB = dateTimePicker3.Value.Date;
-                            if ((dataA <= filme.data && dataB >= filme.data) && pesqgenero.SelectedItem.ToString() == filme.genero && pesqnome.Text == "" && pesqlocal.Text == "")
+                            
+                            if ((dataA <= filme.data && dataB >= filme.data) && pesqnome.Text == "" && pesqlocal.Text == "")
                             {
                                 AdicionaItemListView2(filme);
                             }
@@ -93,11 +91,11 @@ namespace ExerPrat_Filmes
                             {
                                 AdicionaItemListView2(filme);
                             }
-                            else if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data))
-                                || (pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && (dataA <= filme.data && dataB >= filme.data)))
+                            else if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data) && pesqlocal.Text == "")
+                                || (pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && (dataA <= filme.data && dataB >= filme.data) && pesqnome.Text == ""))
                             {
                                 AdicionaItemListView2(filme);
-                            }
+                            }                           
                         }
                     }
                 }
@@ -136,22 +134,23 @@ namespace ExerPrat_Filmes
                     {
                         DateTime dataA = dateTimePicker2.Value.Date;
                         DateTime dataB = dateTimePicker3.Value.Date;
+                       
                         if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data) && pesqlocal.Text == "")
                             || (pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && (dataA <= filme.data && dataB >= filme.data) && pesqnome.Text == ""))
                         {
                             AdicionaItemListView2(filme);
-                            
+
                         }
                         else if (pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data)
                             && pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text))
                         {
                             AdicionaItemListView2(filme);
-                            
+
                         }
-                        else if ((dataA <= filme.data && dataB >= filme.data) && pesqnome.Text== "" && pesqlocal.Text == "")
+                        else if ((dataA <= filme.data && dataB >= filme.data) && pesqnome.Text == "" && pesqlocal.Text == "")
                         {
                             AdicionaItemListView2(filme);
-                        }
+                        }                        
                     }                    
                 }
             }
