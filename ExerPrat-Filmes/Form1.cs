@@ -232,7 +232,7 @@ namespace ExerPrat_Filmes
                 filmes.SubItems.Add(atributo.local);
             }
             else
-                MessageBox.Show("Campo(s) não preenchidos", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Campo(s) não preenchidos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpaTexbox();
         }
 
@@ -256,11 +256,11 @@ namespace ExerPrat_Filmes
             //percorre o laço pegando os itens selecionados e editando o que esta no texbos e combobox
             for (int i = listView1.SelectedItems.Count - 1; i >= 0; i--)
             {
-                ListViewItem remove = listView1.SelectedItems[i];
-                remove.Group = listView1.Groups[comboBox1.SelectedIndex];
-                remove.Text = nomefilme.Text;
-                remove.SubItems[1].Text = dateTimePicker1.Value.ToShortDateString();
-                remove.SubItems[2].Text = local.Text;
+                ListViewItem altera = listView1.SelectedItems[i];
+                altera.Group = listView1.Groups[comboBox1.SelectedIndex];
+                altera.Text = nomefilme.Text;
+                altera.SubItems[1].Text = dateTimePicker1.Value.ToShortDateString();
+                altera.SubItems[2].Text = local.Text;
             }
 
                 Editar.Enabled = false;
