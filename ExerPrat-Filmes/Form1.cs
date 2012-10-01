@@ -64,18 +64,14 @@ namespace ExerPrat_Filmes
                         if (checkdata.Checked == false)
                         {
                             if ( pesqnome.Text == "" && pesqlocal.Text == "")
-                            {
                                AdicionaItemListView2(filme);
-                            }
+
                             else if (((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text)) && (pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text))))
-                            {
                                 AdicionaItemListView2(filme);
-                            }
+
                             else if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && pesqlocal.Text == "")
                             || ((pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && pesqnome.Text == "")))
-                            {
                                 AdicionaItemListView2(filme);
-                            }
                         }
                         else
                         {
@@ -83,19 +79,15 @@ namespace ExerPrat_Filmes
                             DateTime dataB = dateTimePicker3.Value.Date;
                             
                             if ((dataA <= filme.data && dataB >= filme.data) && pesqnome.Text == "" && pesqlocal.Text == "")
-                            {
                                 AdicionaItemListView2(filme);
-                            }
+                            
                             else if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text)
                                 && (dataA <= filme.data && dataB >= filme.data)))
-                            {
                                 AdicionaItemListView2(filme);
-                            }
+                            
                             else if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data) && pesqlocal.Text == "")
                                 || (pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && (dataA <= filme.data && dataB >= filme.data) && pesqnome.Text == ""))
-                            {
-                                AdicionaItemListView2(filme);
-                            }                           
+                                AdicionaItemListView2(filme);                         
                         }
                     }
                 }
@@ -103,14 +95,12 @@ namespace ExerPrat_Filmes
                     MessageBox.Show("Este genero não possui na sua Lista de Filmes", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-            {
-          
+            {      
                 TodososFilmes.Clear();
                 //Pega todos os valores do dicionadio
                 foreach (List<filme> todalista in Difilmes.Values)
-                {
                     TodososFilmes.AddRange(todalista);
-                }
+
                 //percorre cada filme ate que i < TodososFilmes
                 for (int i = 0; i < TodososFilmes.Count; i++)
                 {
@@ -121,14 +111,10 @@ namespace ExerPrat_Filmes
                     {
                         if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && pesqlocal.Text == "")
                             || ((pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && pesqnome.Text == "")))
-                        {
-                            AdicionaItemListView2(filme);
-                            
-                        }
+                            AdicionaItemListView2(filme);                            
+                        
                         else if (pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text))
-                        {
                             AdicionaItemListView2(filme);                           
-                        }
                     }
                     else
                     {
@@ -137,24 +123,17 @@ namespace ExerPrat_Filmes
                        
                         if ((pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data) && pesqlocal.Text == "")
                             || (pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text) && (dataA <= filme.data && dataB >= filme.data) && pesqnome.Text == ""))
-                        {
                             AdicionaItemListView2(filme);
 
-                        }
                         else if (pesqnome.Text != "" && filme.nomes.Contains(pesqnome.Text) && (dataA <= filme.data && dataB >= filme.data)
                             && pesqlocal.Text != "" && filme.local.Contains(pesqlocal.Text))
-                        {
                             AdicionaItemListView2(filme);
 
-                        }
                         else if ((dataA <= filme.data && dataB >= filme.data) && pesqnome.Text == "" && pesqlocal.Text == "")
-                        {
-                            AdicionaItemListView2(filme);
-                        }                        
+                            AdicionaItemListView2(filme);                     
                     }                    
                 }
-            }
-            
+            }           
         }
 
         public void editalista()
@@ -189,17 +168,15 @@ namespace ExerPrat_Filmes
 
         public void Dicioeatriutos()
         {
-
-            atributo = new filme();
+                atributo = new filme();
             
-               atributo.nomes = nomefilme.Text;
+                atributo.nomes = nomefilme.Text;
                 atributo.local = local.Text;
                 atributo.genero = comboBox1.SelectedItem.ToString();
                 atributo.data = dateTimePicker1.Value.Date ;
                 //verifica se a chave ja existe
                 if (Difilmes.ContainsKey(atributo.genero))
                 {
-
                     List<filme> lista = Difilmes[atributo.genero];
                     lista.Add(atributo);
                 }
@@ -210,11 +187,6 @@ namespace ExerPrat_Filmes
                     lista.Add(atributo);
                     Difilmes.Add(atributo.genero, lista);
                 }          
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void Cadastrar_Click(object sender, EventArgs e)
@@ -262,7 +234,6 @@ namespace ExerPrat_Filmes
                 altera.SubItems[1].Text = dateTimePicker1.Value.ToShortDateString();
                 altera.SubItems[2].Text = local.Text;
             }
-
                 Editar.Enabled = false;
                 LimpaTexbox();
         }
@@ -290,18 +261,13 @@ namespace ExerPrat_Filmes
                 excluir.Enabled = false;
                 Editar.Enabled = false;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //botão pesquisa
         private void button1_Click(object sender, EventArgs e)
         {
             Pesquisa();
             button1.Enabled = false;
         }
-
+        //botão limpa Pesquisa
         private void button2_Click(object sender, EventArgs e)
         {
             listView2.Items.Clear();
