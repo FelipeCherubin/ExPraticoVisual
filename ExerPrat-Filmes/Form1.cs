@@ -277,5 +277,10 @@ namespace ExerPrat_Filmes
             checkdata.Checked = false;
             button1.Enabled = true;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

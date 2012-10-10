@@ -46,7 +46,6 @@
             System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Ficção-Científica", System.Windows.Forms.HorizontalAlignment.Left);
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.listView1 = new System.Windows.Forms.ListView();
             this.colunanome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colunaassistido = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -80,6 +79,7 @@
             this.colunalocal1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.checkdata = new System.Windows.Forms.CheckBox();
             this.pesqgenero = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // listView1
@@ -117,10 +117,9 @@
             listViewGroup7,
             listViewGroup8,
             listViewGroup9});
-            this.listView1.Location = new System.Drawing.Point(13, 239);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
+            this.listView1.Location = new System.Drawing.Point(10, 202);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(520, 275);
+            this.listView1.Size = new System.Drawing.Size(391, 218);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -144,54 +143,49 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(25, 57);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(7, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 17);
+            this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nome do Filmes";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 107);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(180, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Genero";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(256, 57);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(7, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 17);
+            this.label3.Size = new System.Drawing.Size(108, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Data que foi assistido";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 155);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 108);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Local";
             // 
             // nomefilme
             // 
-            this.nomefilme.Location = new System.Drawing.Point(29, 79);
-            this.nomefilme.Margin = new System.Windows.Forms.Padding(4);
+            this.nomefilme.Location = new System.Drawing.Point(10, 47);
             this.nomefilme.Name = "nomefilme";
-            this.nomefilme.Size = new System.Drawing.Size(208, 22);
+            this.nomefilme.Size = new System.Drawing.Size(391, 20);
             this.nomefilme.TabIndex = 5;
             // 
             // comboBox1
@@ -208,36 +202,32 @@
             "Infantil",
             "Romance",
             "Ficção-Científica"});
-            this.comboBox1.Location = new System.Drawing.Point(29, 127);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox1.Location = new System.Drawing.Point(183, 83);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 24);
+            this.comboBox1.Size = new System.Drawing.Size(114, 21);
             this.comboBox1.TabIndex = 6;
             // 
             // local
             // 
-            this.local.Location = new System.Drawing.Point(29, 177);
-            this.local.Margin = new System.Windows.Forms.Padding(4);
+            this.local.Location = new System.Drawing.Point(10, 124);
             this.local.Multiline = true;
             this.local.Name = "local";
-            this.local.Size = new System.Drawing.Size(363, 47);
+            this.local.Size = new System.Drawing.Size(391, 39);
             this.local.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(260, 79);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(10, 84);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(132, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(105, 20);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // Cadastrar
             // 
-            this.Cadastrar.Location = new System.Drawing.Point(433, 54);
-            this.Cadastrar.Margin = new System.Windows.Forms.Padding(4);
+            this.Cadastrar.Location = new System.Drawing.Point(174, 169);
             this.Cadastrar.Name = "Cadastrar";
-            this.Cadastrar.Size = new System.Drawing.Size(100, 46);
+            this.Cadastrar.Size = new System.Drawing.Size(65, 27);
             this.Cadastrar.TabIndex = 10;
             this.Cadastrar.Text = "Cadastrar";
             this.Cadastrar.UseVisualStyleBackColor = true;
@@ -245,10 +235,9 @@
             // 
             // Editar
             // 
-            this.Editar.Location = new System.Drawing.Point(432, 121);
-            this.Editar.Margin = new System.Windows.Forms.Padding(4);
+            this.Editar.Location = new System.Drawing.Point(245, 169);
             this.Editar.Name = "Editar";
-            this.Editar.Size = new System.Drawing.Size(100, 28);
+            this.Editar.Size = new System.Drawing.Size(75, 27);
             this.Editar.TabIndex = 11;
             this.Editar.Text = "Editar";
             this.Editar.UseVisualStyleBackColor = true;
@@ -256,13 +245,14 @@
             // 
             // excluir
             // 
-            this.excluir.Location = new System.Drawing.Point(432, 194);
-            this.excluir.Margin = new System.Windows.Forms.Padding(4);
+            this.excluir.BackColor = System.Drawing.SystemColors.Control;
+            this.excluir.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.excluir.Location = new System.Drawing.Point(326, 169);
             this.excluir.Name = "excluir";
-            this.excluir.Size = new System.Drawing.Size(100, 28);
+            this.excluir.Size = new System.Drawing.Size(75, 27);
             this.excluir.TabIndex = 12;
             this.excluir.Text = "Excluir";
-            this.excluir.UseVisualStyleBackColor = true;
+            this.excluir.UseVisualStyleBackColor = false;
             this.excluir.Click += new System.EventHandler(this.excluir_Click);
             // 
             // textBox1
@@ -271,20 +261,18 @@
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(1, 2);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1224, 44);
+            this.textBox1.Size = new System.Drawing.Size(919, 27);
             this.textBox1.TabIndex = 13;
             this.textBox1.Text = "Cadastro de filmes";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1110, 112);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(834, 137);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 47);
+            this.button1.Size = new System.Drawing.Size(75, 38);
             this.button1.TabIndex = 14;
             this.button1.Text = "Pesquisa";
             this.button1.UseVisualStyleBackColor = true;
@@ -292,10 +280,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1054, 194);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(806, 194);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(156, 28);
+            this.button2.Size = new System.Drawing.Size(103, 30);
             this.button2.TabIndex = 16;
             this.button2.Text = "Limpar Pesquisa";
             this.button2.UseVisualStyleBackColor = true;
@@ -304,91 +291,82 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(670, 57);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(502, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 17);
+            this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 17;
             this.label5.Text = "Nome";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(670, 155);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(502, 169);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 18;
             this.label6.Text = "Local";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(880, 107);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(679, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 17);
+            this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 19;
             this.label7.Text = "Data Final";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(670, 104);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(502, 86);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 17);
+            this.label8.Size = new System.Drawing.Size(59, 13);
             this.label8.TabIndex = 20;
             this.label8.Text = "Data inicial";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(880, 57);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(502, 129);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 17);
+            this.label9.Size = new System.Drawing.Size(42, 13);
             this.label9.TabIndex = 21;
             this.label9.Text = "Genero";
             // 
             // pesqnome
             // 
-            this.pesqnome.Location = new System.Drawing.Point(673, 79);
-            this.pesqnome.Margin = new System.Windows.Forms.Padding(4);
+            this.pesqnome.Location = new System.Drawing.Point(505, 61);
             this.pesqnome.Name = "pesqnome";
-            this.pesqnome.Size = new System.Drawing.Size(192, 22);
+            this.pesqnome.Size = new System.Drawing.Size(323, 20);
             this.pesqnome.TabIndex = 22;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(699, 125);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker2.Location = new System.Drawing.Point(524, 102);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(135, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(102, 20);
             this.dateTimePicker2.TabIndex = 24;
             // 
             // dateTimePicker3
             // 
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(883, 125);
-            this.dateTimePicker3.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker3.Location = new System.Drawing.Point(682, 102);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(132, 22);
+            this.dateTimePicker3.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker3.TabIndex = 25;
             // 
             // pesqlocal
             // 
-            this.pesqlocal.Location = new System.Drawing.Point(673, 179);
-            this.pesqlocal.Margin = new System.Windows.Forms.Padding(4);
+            this.pesqlocal.Location = new System.Drawing.Point(505, 187);
             this.pesqlocal.Multiline = true;
             this.pesqlocal.Name = "pesqlocal";
-            this.pesqlocal.Size = new System.Drawing.Size(368, 45);
+            this.pesqlocal.Size = new System.Drawing.Size(299, 37);
             this.pesqlocal.TabIndex = 26;
             // 
             // listView2
@@ -425,10 +403,9 @@
             listViewGroup16,
             listViewGroup17,
             listViewGroup18});
-            this.listView2.Location = new System.Drawing.Point(673, 239);
-            this.listView2.Margin = new System.Windows.Forms.Padding(4);
+            this.listView2.Location = new System.Drawing.Point(505, 230);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(537, 275);
+            this.listView2.Size = new System.Drawing.Size(404, 188);
             this.listView2.TabIndex = 27;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -451,10 +428,9 @@
             // checkdata
             // 
             this.checkdata.AutoSize = true;
-            this.checkdata.Location = new System.Drawing.Point(673, 128);
-            this.checkdata.Margin = new System.Windows.Forms.Padding(4);
+            this.checkdata.Location = new System.Drawing.Point(505, 104);
             this.checkdata.Name = "checkdata";
-            this.checkdata.Size = new System.Drawing.Size(18, 17);
+            this.checkdata.Size = new System.Drawing.Size(15, 14);
             this.checkdata.TabIndex = 29;
             this.checkdata.UseVisualStyleBackColor = true;
             // 
@@ -472,19 +448,28 @@
             "Infantil",
             "Romance",
             "Ficção-Científica"});
-            this.pesqgenero.Location = new System.Drawing.Point(883, 79);
-            this.pesqgenero.Margin = new System.Windows.Forms.Padding(4);
+            this.pesqgenero.Location = new System.Drawing.Point(505, 145);
             this.pesqgenero.Name = "pesqgenero";
-            this.pesqgenero.Size = new System.Drawing.Size(160, 24);
+            this.pesqgenero.Size = new System.Drawing.Size(121, 21);
             this.pesqgenero.TabIndex = 32;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(344, 250);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1223, 527);
+            this.ClientSize = new System.Drawing.Size(917, 428);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pesqgenero);
             this.Controls.Add(this.checkdata);
             this.Controls.Add(this.listView2);
@@ -513,12 +498,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Filmes";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,6 +544,7 @@
         private System.Windows.Forms.ColumnHeader colunalocal1;
         private System.Windows.Forms.CheckBox checkdata;
         private System.Windows.Forms.ComboBox pesqgenero;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
