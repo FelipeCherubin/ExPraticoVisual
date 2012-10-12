@@ -30,7 +30,7 @@ namespace ExerPrat_Filmes
             //limpando texboxs
             nomefilme.Clear();
             local.Clear();
-            comboBox1.Text = "";
+            comboBox1.SelectedItem = null;
             nomefilme.Focus();
         }
 
@@ -191,9 +191,10 @@ namespace ExerPrat_Filmes
 
         private void Cadastrar_Click(object sender, EventArgs e)
         {
-            //se nome, local e grupo estiverem sem conteudo ele retorna a mensagem, se nao ele entra na condição
+            //se nome, local e grupo estiverem sem conteudo ele retorna a mensagem, se nao ele entra na condição &&
             if (nomefilme.Text != "" && local.Text != "" && comboBox1.SelectedItem != null)
             {
+                errorProvider1.Clear();
                 Dicioeatriutos();
                 //inserção dos dados na tabela
                 filmes = new ListViewItem();
@@ -202,10 +203,28 @@ namespace ExerPrat_Filmes
                 listView1.Items.Add(filmes);
                 filmes.SubItems.Add(atributo.data.ToShortDateString());
                 filmes.SubItems.Add(atributo.local);
+                LimpaTexbox();
             }
             else
-                MessageBox.Show("Campo(s) não preenchidos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LimpaTexbox();
+            {
+                foreach (Control tex in this.groupBox1.Controls )
+                {
+                    if (tex is TextBox)
+                    {
+                        TextBox t = (TextBox)tex;
+                        if (t.Text == "")
+                            errorProvider1.SetError(t, "Digite o(os) campo(s) Vazios");
+                        else
+                            errorProvider1.SetError(t, "");
+                    }
+                }
+
+                if (comboBox1.SelectedItem == null)
+                    errorProvider1.SetError(comboBox1, "Digite o(os) campo(s) Vazios");
+                else
+                    errorProvider1.SetError(comboBox1, "");
+               
+            }
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
